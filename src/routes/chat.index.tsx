@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { AppShell } from "@/components/layout/AppShell";
 import { firstThread } from "@/lib/threads";
 
-export const Route = createFileRoute("/chat")({
+export const Route = createFileRoute("/chat/")({
   head: () => ({
     meta: [
       { title: "AI Chat — Workflow AI Assistant" },
