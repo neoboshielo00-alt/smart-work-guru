@@ -23,7 +23,7 @@ function buildPrompt(
       return [
         `ROLE: Professional business email writer.`,
         `TASK: Draft a complete, ready-to-send email for the request below.`,
-        `TONE: ${options.tone ?? "Professional"}. AUDIENCE: ${options.audience ?? "Client"}.`,
+        `TONE: ${options['tone'] ?? "Professional"}. AUDIENCE: ${options['audience'] ?? "Client"}.`,
         `CONSTRAINTS: Clear subject line, concise body (under 180 words), concrete call to action. Mark any names, dates or figures you cannot verify as [confirm].`,
         `OUTPUT (markdown): **Subject:** … then the email body, then **Alternative subject lines:** (3 bullets).`,
         ``,
@@ -41,7 +41,7 @@ function buildPrompt(
     case "planner":
       return [
         `ROLE: Chief-of-staff productivity planner.`,
-        `TASK: Turn the task dump below into a prioritized, time-blocked plan for: ${options.horizon ?? "Today"}.`,
+        `TASK: Turn the task dump below into a prioritized, time-blocked plan for: ${options['horizon'] ?? "Today"}.`,
         `CONSTRAINTS: Rank by impact × urgency. Schedule around fixed meetings. Give realistic estimates. Never invent deadlines.`,
         `OUTPUT (markdown): ## Top Priorities (ranked, with one-line reason), ## Suggested Schedule (markdown table: Time | Block | Task), ## Defer or Delegate (bullets), ## Coaching Note (1-2 sentences).`,
         ``,
@@ -50,7 +50,7 @@ function buildPrompt(
     case "research":
       return [
         `ROLE: Rigorous business research analyst.`,
-        `TASK: Produce a ${options.depth ?? "Standard brief"} research brief on the question below.`,
+        `TASK: Produce a ${options['depth'] ?? "Standard brief"} research brief on the question below.`,
         `CONSTRAINTS: Separate established knowledge from analysis. Do NOT fabricate statistics, quotes, URLs or citations — list uncertain items under "Verify".`,
         `OUTPUT (markdown): ## Executive Summary, ## Key Insights (bullets), ## Trade-offs & Considerations (bullets), ## Recommended Next Steps (numbered), ## Verify (facts/figures needing human confirmation).`,
         ``,

@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import type { MotionProps } from "motion/react";
 import { motion } from "motion/react";
-import type { CSSProperties, ElementType, JSX } from "react";
+import type { ComponentProps, ElementType, JSX } from "react";
 import { memo, useMemo } from "react";
 
 type MotionHTMLProps = MotionProps & Record<string, unknown>;
@@ -61,7 +61,7 @@ const ShimmerComponent = ({
           "--spread": `${dynamicSpread}px`,
           backgroundImage:
             "var(--bg), linear-gradient(var(--color-muted-foreground), var(--color-muted-foreground))",
-        } as unknown as CSSProperties
+        } as unknown as NonNullable<ComponentProps<typeof MotionComponent>["style"]>
       }
       transition={{
         duration,
